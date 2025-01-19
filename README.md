@@ -52,19 +52,10 @@ pip install -r requirements.txt
 Adjust the DATABASES configuration in `settings.py` for PostgreSWL and SQLite as per your development and production environments.
 
 5. **Run Migrations**
-```
-python manage.py migrate
-```
 
 6. **Create Superuser for Admin Access**
-```
-python manage.py createsuperuser
-```
 
 7. **Run the Development Server**
-```
-python manage.py runserver
-```
 
 8. **View on Local Host**  
 Visit `http://127.0.0.1:8000 `in your browser to view app.
