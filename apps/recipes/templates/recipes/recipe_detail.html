@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %}{{object.name}}Recipe {% endblock %} 
+
+{% block content %}
+<div class="template-image">
+  
+  <br />
+  <br />
+  <div class="detail-box">
+    <h1 class="recipe-name">{{object.name}}</h1>
+
+    <img
+      src="{{object.pic.url}}"
+      class="recipe-image-detail"
+    /><br />
+    <b class="recipe-detail">Details: </b> {{object.description|safe}} 
+    <b class="recipe-ingredients">Ingredients: </b> {{object.ingredients}} <br />
+    <p><b class="recipe-time">Cooking Time: </b>{{object.cooking_time}} mins &nbsp; <b class="recipe-diff">Difficulty:</b> {{object.difficulty}}<br /></p>
+    <br/>
+    <div clas="button-container">
+    <a href="{% url 'recipes:update' object.pk %}" class="btn btn-primary">Edit Recipe</a>
+    <!-- <a href="{% url 'recipes:delete' object.pk %}" class="btn btn-danger">Delete Recipe</a> -->
+  </div>
+</div>
+</div>
+{% endblock content %}

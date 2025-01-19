@@ -1,0 +1,36 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="hero-image">
+  <div class="hero-text">
+    {% if error_message %} {{error_message}} {% endif %}
+    <div class="login-container">
+      <form
+        class="login-form"
+        action=""
+        method="POST"
+      >
+        <h1 class="main-header">Login</h1>
+        <br />
+        {% csrf_token %} {% comment %} print form received from view
+        {%endcomment%} {{form.username.label}}&nbsp;&nbsp;{{form.username}}
+        <br />
+        <br />
+        {{form.password.label}}&nbsp;&nbsp;{{form.password}}
+        <!-- {{form}} -->
+        <br />
+        <br />
+        <button
+          class="login-button"
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

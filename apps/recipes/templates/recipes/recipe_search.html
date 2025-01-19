@@ -1,0 +1,52 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Recipe Search{% endblock %} 
+
+{% block content %}
+<div class="template-image">
+
+  <div class="search-page">
+      <h1 class="main-header" style="font-size: 50px">Recipe Search</h1>
+      <div class="search-box">
+      <h2>Search for a recipe using one or more of the following options:</h2>
+      <!-- Search Form -->
+      <form method="GET" action="">
+          {{ form.as_p }}
+          <button type="submit" class="login-button">Search</button> <br/>
+          <br/>
+          <a href="{% url 'recipes:list' %}" style="color: #e25d46; font-weight: 700">Show All Recipes</a>
+      </form>
+    </div>
+    <br/>
+      <hr>
+      
+      <!-- Results Table -->
+      <h2 style="text-align: center;">Search Results</h2>
+      <!-- <div>
+          {{ recipe_df|safe }}
+      </div> -->
+      {% if recipes %}
+      <table class="search-results-table">
+        <thead>
+          <tr>
+            <th>Recipe</th>
+            <th>Difficulty</th>
+            <th>Cooking Time (mins)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for recipe in recipes %}
+            <tr>
+              <td><a href="{{recipe.get_absolute_url}}" style="color: #e25d46">{{recipe.name}}</a></td>
+              <td>{{recipe.difficulty}}</td>
+              <td>{{recipe.cooking_time}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No recipes found matching your search criteria.</p>
+    {% endif %}
+  </div>
+  </div>
+{% endblock content %}

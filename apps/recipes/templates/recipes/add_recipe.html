@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Add Recipe{% endblock %} 
+
+{% block content %}
+<div class="template-image">
+
+  <div class="add_recipe-container">
+      <h1>Add a New Recipe</h1>
+      <form class="add_recipe-form" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary" onclick="return alert('Recipe Successfully Added!');">Add Recipe</button>
+      </form>
+  </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% load recipe_tags %}
+
+{% block title %} Recipes List {%endblock %} 
+
+  {% block content %}
+  
+  <!-- <div class="recipe-container"> -->
+    <div class="template-image">
+  <h1
+    class="main-header"
+    style="font-size: 40px"
+  >
+    Recipes
+  </h1>
+  <div class="recipe-grid">
+    {% for object in object_list %}
+    <div class="recipes-container">
+      <a
+        href="{{object.get_absolute_url}}"
+        class="recipe-wrapper"
+      >
+        <div>
+          <img
+            src="{{object.pic.url}}"
+            class="recipe-image"
+            width="200"
+            height="200"
+          />
+        </div>
+        <div>
+          <h2 class="recipe-name">{{object.name}}</h2>
+          <p class="recipe-description">{{object.description|short_description|safe}}</p>
+          <p class="recipe-cooking_time">Cooking Time: {{object.cooking_time}} mins<br />
+           Difficulty: {{object.difficulty}}</p>
+        </div>
+      </a>
+    </div> 
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

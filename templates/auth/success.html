@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %}Logout{% endblock %} 
+
+{% block content %}
+<div class="hero-image">
+  <div class="logout-text">
+    <div class="flex-container">
+      <div class="center-div">
+        <h1
+          class="main-header"
+        >
+          Thanks for visiting!
+        </h1>
+        <div class="logout-container">
+          <div class="logout-message">
+            <h2>You've Successfully Logged Out.</h2>
+          </div>
+          <br />
+          <div>
+            <div class="relog-in">
+              <a
+                href="{%url 'login' %}"
+                class="login-button"
+                >Login again?</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

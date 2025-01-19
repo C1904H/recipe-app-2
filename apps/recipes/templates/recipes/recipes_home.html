@@ -1,0 +1,42 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Recipes Home{% endblock %} 
+
+{% block content %} 
+<div class="hero-image"> 
+  <div class="hero-text">
+    
+    <h1
+      class="main-header"
+      style="font-size: 50px"
+    >
+      Welcome to the Recipe App!
+    </h1>
+    <h2>Login to access features:</h2>
+    <div class="features-container">
+      <div class="feature-item">
+        <a class="feature-title" href="{%url 'recipes:list' %}" style="color: #e25d46">Recipe List</a>
+      <img src="{% static 'recipes/images/list.png' %}" alt="image of recipe list page">
+    </div>
+      <div class="feature-item">
+        <div class="feature-title">Recipe Detail</div>
+      <img src="{% static 'recipes/images/detail.png' %}" alt="image of recipe detail page">
+    </div>
+      <div class="feature-item">
+        <a class="feature-title" href="{%url 'recipes:search' %}" style="color: #e25d46">Recipe Search</a>
+      <img src="{% static 'recipes/images/search.png' %}" alt="image of recipe search page">
+    </div>
+      <div class="feature-item">
+        <a class="feature-title" href="{%url 'recipes:analytics' %}" style="color: #e25d46">Recipe Analytics</a>
+      <img src="{% static 'recipes/images/analytics.png' %}" alt="image of recipe analytics page">
+    </div>
+    </div>
+    <a
+      href="{%url 'login' %}"
+      class="login-button"
+      >Login</a
+    >
+  </div>
+</div>
+
+{% endblock content %}

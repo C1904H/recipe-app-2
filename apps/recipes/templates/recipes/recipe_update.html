@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Recipe Update{% endblock %} 
+
+{% block content %}
+<div class="template-image">
+<br/>
+
+<div class="add_recipe-container">
+    <h1>Edit Recipe</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-container">
+        <button type="submit" class="btn btn-success" onclick="return alert('Recipe Successfully Updated!');" >Save Changes</button>
+        <a href="{% url 'recipes:detail' object.pk %}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+</div>
+</div>
+{% endblock %}

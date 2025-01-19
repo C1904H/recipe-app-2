@@ -14,6 +14,7 @@ THIRD_PARTY_APP = [
     "django_extensions",
 ]  # third party apps goe here
 
+
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APP
 
 

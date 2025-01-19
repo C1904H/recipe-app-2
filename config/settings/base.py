@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import os
+
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 DEFAULT_APP = [
@@ -12,6 +14,7 @@ DEFAULT_APP = [
 ]
 CREATED_APP = [
     "apps.core.apps.CoreConfig",
+    "apps.recipes",
 ]  # custom apps goe here
 
 THIRD_PARTY_APP = []  # third party apps goe here
@@ -33,7 +36,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -72,6 +75,15 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = "static/"
+#AUTH
+LOGIN_URL='/login/'
+
+STATIC_URL = "/static/"
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = BASE_DIR / "media"
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

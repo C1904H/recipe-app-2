@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Recipe Analytics{% endblock %} 
+
+{% block content %}
+<div class="template-image">
+  
+
+  <div class="analytics">
+      <h1 class="main-header" style="font-size: 50px">Recipe Analytics</h1>
+    <div class="chart-container">
+      <div class="chart-item">
+      <h2>Cooking Time Per Recipe</h2>
+      <img class="bar_chart" src="data:image/png;base64,{{ charts.bar_chart }}" alt="Bar Chart">
+    </div>
+    <div class="chart-item">
+      <h2>Number of Ingredients Per Recipe</h2>
+      <img class="line_chart" src="data:image/png;base64,{{ charts.line_chart_ingredients }}" alt="Line Chart - Ingredients">
+    </div>
+      <div class="chart-item">
+      <h2>Recipe Difficulty Distribution</h2>
+      <img class="pie_chart" src="data:image/png;base64,{{ charts.pie_chart }}" alt="Pie Chart">
+    </div>
+    </div>     
+</div>
+</div>
+{% endblock content %}

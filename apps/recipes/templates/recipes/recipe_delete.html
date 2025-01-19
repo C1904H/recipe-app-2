@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}Delete Recipe{% endblock %} 
+
+{% block content %}
+<div class="template-image">
+<br/>
+
+<div class="add_recipe-container">
+    <h1>Delete Recipe</h1>
+    <p style="text-align: center;">Are you sure you want to delete the recipe <span class="recipe-delete">{{ object.name }}</span> ?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="button-container">
+        <button type="submit" class="btn btn-danger" onclick="return alert('Recipe Successfully Deleted!');" >Yes, Delete</button>
+        <a href="{% url 'recipes:detail' object.pk %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+</div>
+{% endblock %}
