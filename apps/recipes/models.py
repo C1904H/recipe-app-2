@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
+from django.conf import settings
 
 class Recipe(models.Model):
   name= models.CharField(max_length=50)
@@ -7,7 +8,11 @@ class Recipe(models.Model):
   cooking_time= models.PositiveIntegerField(help_text="Cooking time in minutes")
   difficulty= models.CharField(max_length=20, editable=False, null=True, blank=True) 
   description= models.TextField()
-  pic = models.ImageField(upload_to='recipes', default='no_picture.jpg')
+  pic = models.ImageField(
+     upload_to='recipes', 
+     default=(f'https://res.cloudinary.com/{settings.CLOUDINARY_CLOUD_NAME}/image/upload/v12345678/no_picture.jpg' 
+                 if not settings.DEBUG else 'recipes/no_picture.jpg')
+  )
 
   def calculate_difficulty(self):
     num_ingredients = len(self.ingredients.split(','))

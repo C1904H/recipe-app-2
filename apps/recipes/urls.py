@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import home, RecipeListView, RecipeDetailView, recipe_search, recipe_analytics, add_recipe, RecipeUpdateView, RecipeDeleteView, about_page
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'recipes'
 
@@ -14,3 +16,6 @@ urlpatterns = [
   path('delete/<pk>', RecipeDeleteView.as_view(), name='delete'),
   path('about', about_page, name='about'),
 ]
+
+if settings.DEBUG:
+  urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
