@@ -5,3 +5,9 @@ psycopg-binary==3.2.3
 whitenoise==6.6.0
 psycopg2-binary==2.9.10
 psycopg2==2.9.10
+matplotlib==3.10.0
+matplotlib-inline==0.1.7
+numpy==2.2.2
+packaging==24.2
+pandas==2.2.3
+pillow==11.1.0
