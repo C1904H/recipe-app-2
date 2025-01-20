@@ -8,9 +8,10 @@ environ.Env.read_env(str(BASE_DIR / ".env.prod"))
 SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = ["*"]
-# CSRF_TRUSTED_ORIGINS = [
-# ]
+ALLOWED_HOSTS = ["recipe-app-2-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = [
+  "recipe-app-2-production.up.railway.app"
+]
 
 
 MIDDLEWARE = MIDDLEWARE + ["whitenoise.middleware.WhiteNoiseMiddleware"]
