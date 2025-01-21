@@ -25,6 +25,7 @@ Users can:
 - PostgreSQL for production and SQLite for development database connectivity
 - Easy-to-use interface with simple input forms and easy to follow instructions
 - Code documentation and automated tests hosted on GitHub (includes "requirements.txt" for easy project setup).
+- Cloudinary for database media images
 
 ## Set Up and Installation
 1. **Clone the Repository**
@@ -49,7 +50,7 @@ pip install -r requirements.txt
 ```
 
 4. **Setup Database**  
-Adjust the DATABASES configuration in `settings.py` for PostgreSWL and SQLite as per your development and production environments.
+Adjust the DATABASES configuration in `settings` for PostgreSWL and SQLite as per your development and production environments.
 
 5. **Run Migrations**
 
@@ -59,3 +60,9 @@ Adjust the DATABASES configuration in `settings.py` for PostgreSWL and SQLite as
 
 8. **View on Local Host**  
 Visit `http://127.0.0.1:8000 `in your browser to view app.
+
+## Deployment
+This application is deployed on Railway at [recipe-app-2-production.up.railway.app](https://recipe-app-2-production.up.railway.app/).
+
+## Collaboration
+Thanks to my Mentor Eyongkevin for django-boilerplate provision [GitHub link](https://github.com/Eyongkevin/django-boilerplate).

@@ -12,18 +12,21 @@ environ.Env.read_env(str(BASE_DIR / ".env.prod"))
 SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 
-#cloudinary credentials
+# cloudinary credentials
 CLOUDINARY_CLOUD_NAME=env.str("CLOUD_NAME")
 CLOUDINARY_API_KEY=env.str("API_KEY")
 CLOUDINARY_API_SECRET=env.str("API_SECRET")
 
 if not DEBUG:
   DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+  # CLOUDINARY_STORAGE = {
+  #   'CLOUDINARY_URL': env.str('CLOUDINARY_URL')
+  # }
 
 CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": CLOUDINARY_CLOUD_NAME,
-    "API_KEY": CLOUDINARY_API_KEY,
-    "API_SECRET": CLOUDINARY_API_SECRET,
+    "CLOUD_NAME": env.str("CLOUD_NAME"),
+    "API_KEY": env.str("API_KEY"),
+    "API_SECRET": env.str("API_SECRET"),
 }
 
 ALLOWED_HOSTS = ["recipe-app-2-production.up.railway.app"]
