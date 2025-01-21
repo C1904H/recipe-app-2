@@ -7,7 +7,7 @@ body {
 }
 
 .hero-image {
-  background-image: url('../images/recipeApp.jpg');
+  background-image: url('../images/recipeApp1.jpg');
   background-color: #cccccc;
   height: 100vh;
   background-position: center bottom;
@@ -84,7 +84,7 @@ body {
 }
 
 .template-image {
-  background-image: url('../images/plain_background.png');
+  background-image: url('../images/plain_background.jpg');
   background-color: #cccccc;
   height: 100vh;
   background-position: center bottom;
