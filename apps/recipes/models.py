@@ -9,11 +9,16 @@ class Recipe(models.Model):
   cooking_time= models.PositiveIntegerField(help_text="Cooking time in minutes")
   difficulty= models.CharField(max_length=20, editable=False, null=True, blank=True) 
   description= models.TextField()
-  # pic = CloudinaryField('image', default='no_picture.jpg')
-  pic = models.ImageField(
-     upload_to='recipes', 
-     default=(f'https://res.cloudinary.com/dh7gymjoq/image/upload/v1737405825/no_picture.jpg' 
-                 if not settings.DEBUG else 'recipes/no_picture.jpg')
+  pic = CloudinaryField(
+     'image', 
+     default=(
+        'no_picture.jpg' if settings.DEBUG
+        else 'https://res.cloudinary.com/dh7gymjoq/image/upload/v1737405825/no_picture.jpg'
+      )     
+  # pic = models.ImageField(
+  #    upload_to='recipes', 
+  #    default=(f'https://res.cloudinary.com/dh7gymjoq/image/upload/v1737405825/no_picture.jpg' 
+  #                if not settings.DEBUG else 'recipes/no_picture.jpg')
   )
 
   def calculate_difficulty(self):
