@@ -2,6 +2,10 @@ import environ
 
 from .base import *
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(str(BASE_DIR / ".env.prod"))
 
@@ -13,7 +17,8 @@ CLOUDINARY_CLOUD_NAME=env.str("CLOUD_NAME")
 CLOUDINARY_API_KEY=env.str("API_KEY")
 CLOUDINARY_API_SECRET=env.str("API_SECRET")
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+if not DEBUG:
+  DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": CLOUDINARY_CLOUD_NAME,
